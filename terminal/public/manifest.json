@@ -1,0 +1,120 @@
+{
+  "src/assets/sound/beep.mp3": {
+    "file": "_app/immutable/assets/beep-24004a82.mp3",
+    "src": "src/assets/sound/beep.mp3"
+  },
+  "src/assets/sound/error.mp3": {
+    "file": "_app/immutable/assets/error-94d56db6.mp3",
+    "src": "src/assets/sound/error.mp3"
+  },
+  "node_modules/pdfjs-dist/build/pdf.worker.min.js": {
+    "file": "_app/immutable/assets/pdf.worker.min-0f67e971.js",
+    "src": "node_modules/pdfjs-dist/build/pdf.worker.min.js"
+  },
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "_app/immutable/start-1712f877.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_index-37fe09c4.js",
+      "_index-31e7635f.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      ".svelte-kit/runtime/components/error.svelte",
+      "src/routes/gui/win98.svelte",
+      "src/routes/index.svelte"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "_app/immutable/pages/__layout.svelte-c134ade5.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-37fe09c4.js"
+    ],
+    "css": [
+      "_app/immutable/assets/__layout-b42be496.css"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "_app/immutable/error.svelte-75d281de.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-37fe09c4.js"
+    ]
+  },
+  "src/routes/gui/win98.svelte": {
+    "file": "_app/immutable/pages/gui/win98.svelte-6e0d580f.js",
+    "src": "src/routes/gui/win98.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-37fe09c4.js",
+      "_Terminal-f9013af3.js",
+      "_index-31e7635f.js"
+    ],
+    "css": [
+      "_app/immutable/assets/win98-07bf1647.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/pdf.worker.min-0f67e971.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "_app/immutable/pages/index.svelte-4516ec66.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-37fe09c4.js",
+      "_Terminal-f9013af3.js",
+      "_index-31e7635f.js"
+    ],
+    "css": [
+      "_app/immutable/assets/index-e705d169.css"
+    ]
+  },
+  "_index-37fe09c4.js": {
+    "file": "_app/immutable/chunks/index-37fe09c4.js"
+  },
+  "_index-31e7635f.js": {
+    "file": "_app/immutable/chunks/index-31e7635f.js",
+    "imports": [
+      "_index-37fe09c4.js"
+    ]
+  },
+  "_Terminal-f9013af3.js": {
+    "file": "_app/immutable/chunks/Terminal-f9013af3.js",
+    "imports": [
+      "_index-37fe09c4.js",
+      "_index-31e7635f.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Terminal-8a36be0e.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/beep-24004a82.mp3",
+      "_app/immutable/assets/error-94d56db6.mp3"
+    ]
+  },
+  "src/routes/index.css": {
+    "file": "_app/immutable/assets/index-e705d169.css",
+    "src": "src/routes/index.css"
+  },
+  "Terminal.css": {
+    "file": "_app/immutable/assets/Terminal-8a36be0e.css",
+    "src": "Terminal.css"
+  },
+  "src/routes/__layout.css": {
+    "file": "_app/immutable/assets/__layout-b42be496.css",
+    "src": "src/routes/__layout.css"
+  },
+  "src/routes/gui/win98.css": {
+    "file": "_app/immutable/assets/win98-07bf1647.css",
+    "src": "src/routes/gui/win98.css"
+  }
+}
