@@ -149,7 +149,7 @@ dist
 
 # SvelteKit build / generate output
 .svelte-kit
-.public
+build
 
 ### react ###
 .DS_*
