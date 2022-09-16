@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-const Navigation = () => {
+interface NavigationProps {
+    loadMore: () => void;
+}
+
+const Navigation = (props: NavigationProps) => {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
 
     return (
@@ -23,20 +27,18 @@ const Navigation = () => {
                             (navbarOpen ? " flex" : " hidden") }
                         id="example-navbar-danger" >
                         <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-                            {/* <li className="nav-item">
+                            {/* {/* <li className="nav-item">
                                 <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                     href="#pablo">
                                     <i className="leading-lg text-white opacity-75"></i>
                                     <span className="ml-2 text-lg">Share</span>
                                 </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    href="#pablo" >
-                                    <i className=" leading-lg text-white opacity-75"></i>
-                                    <span className="ml-2 text-lg">Tweet</span>
-                                </a>
                             </li> */}
+                            <li className="nav-item" onClick={props.loadMore}>
+                                <p className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                                    <span className="ml-2 text-lg">Load more</span>
+                                </p>
+                            </li> 
                         </ul>
                     </div>
                 </div>

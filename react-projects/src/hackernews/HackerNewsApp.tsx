@@ -120,27 +120,22 @@ const HackerNewsApp = () => {
 				setShowModal(true);	
 
 			}
-
-	
-
 		}
+	}
+
+	const loadMore = () => {
+		setNewsPage(newsPage += 1);
+		getNewsData(newsPage);
 	}
 
 	useEffect(() => {
 		document.title = "Hacker News";
-
-		setNewsPage(newsPage += 1);
-		getNewsData(newsPage);
+		loadMore();
 		// on scroll close to bottom, get more news
 		window.onscroll = () => {
 			if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
-				setNewsPage(newsPage += 1);
-				getNewsData(newsPage);
+				loadMore();
 			}
-		}
-		if (window.innerHeight < document.documentElement.offsetHeight) {
-			setNewsPage(newsPage += 1);
-			getNewsData(newsPage);
 		}
 	}, []);
 
@@ -156,7 +151,7 @@ const HackerNewsApp = () => {
 				className='w-full h-screen bg-no-repeat bg-cover bg-center bg-fixed fixed'></div>
 			<div className="h-screen w-screen bg-black opacity-40 fixed"></div>
 			<div>
-				<Navigation></Navigation>
+				<Navigation loadMore={loadMore}/>
 				<div className="mx-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 px-10">
 
 					{loading && <div className="text-white text-center fixed">Loading...</div>}
