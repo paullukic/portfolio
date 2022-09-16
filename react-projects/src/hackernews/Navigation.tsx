@@ -34,7 +34,7 @@ const Navigation = (props: NavigationProps) => {
                                     <span className="ml-2 text-lg">Share</span>
                                 </a>
                             </li> */}
-                            <li className="nav-item" onClick={props.loadMore}>
+                            <li className="nav-item cursor-pointer" onClick={props.loadMore}>
                                 <p className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                                     <span className="ml-2 text-lg">Load more</span>
                                 </p>
