@@ -21,27 +21,25 @@ const ArticleModal = (props: ArticleModalProps) => {
 
     return (
         <>
-            <div id='modal' className="fixed inset-0 h-full bg-black bg-fixed opacity-80"></div>
+            <div id='modal' className="fixed inset-0 h-full bg-black opacity-80"></div>
             
-            <button id='close-modal' className="absolute top-0 right-0 m-4 text-white text-2xl font-bold">X</button>
+            <button id='close-modal' className="fixed top-0 right-0 m-4 text-white text-2xl font-bold">X</button>
 
 
 
-            <div className="absolute left-1/2 -translate-x-1/2 w-full h-full mx-auto 
+            <div className="fixed left-1/2 -translate-x-1/2 w-full h-full mx-auto 
                       bg-cyan-500 bg-opacity-10 rounded-xl backdrop-blur-md"
-                style={{ maxHeight: '81vh', width: '79vw', top: '76px' }}></div>
+                style={{ maxHeight: '80vh', width: '77vw' }}></div>
 
 
-            <div className="absolute left-1/2 -translate-x-1/2 inset-0 z-10 overflow-x-hidden top-20 customScroll"
+            <div className="fixed left-1/2 -translate-x-1/2 inset-0 z-10 overflow-x-hidden top-20 customScroll"
                 style={{ maxHeight: '80vh', width: '77vw' }}>
 
                 <div className="flex items-center">
                     <div className="relative mx-auto" style={{ maxWidth: '77vw', maxHeight: '80vh' }}>
                         <div className="flex">
                             <div className="sm:mt-6 sm:mx-6 p-1 sm:text-left">
-                                <h4 className="text-lg font-medium text-amber-500"
-                                    onClick={() => { if(props.url) window.open(props.url, "_blank") }}
-                                    > {props.title} </h4>
+                                <h4 className="text-lg font-medium text-amber-500"> {props.title} </h4>
                                 {/* comments */}
                                 <div className="mt-2">
                                     <p className="text-sm text-white">
