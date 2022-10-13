@@ -105,6 +105,10 @@
 					description: 'Start the GUI version of the app'
 				},
 				{
+					command: 'start gui -react',
+					description: 'Start the GUI React version of the app'
+				},
+				{
 					command: 'get social',
 					description: 'Get my social media links'
 				}
@@ -192,6 +196,9 @@
 			}
 			if (valueCommand.text === 'start gui -win98') {
 				window.open('/gui/win98.html', '_blank');
+			}
+			if (valueCommand.text === 'start gui -react') {
+				window.open('https://react.paullukic.com', '_blank');
 			}
 			if (valueCommand.text === 'get social') {
 				let socialLinks: TerminalLine[] = [

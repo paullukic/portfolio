@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import InfiniteScroll from 'react-infinite-scroll-component';
 import Navigation from "./Navigation";
 
 import './HackerNewsScroll.css'
@@ -12,9 +13,6 @@ import ArticleModal from "./ArticleModal";
 
 
 const HackerNewsApp = () => {
-
-
-
 	let [newsPage, setNewsPage] = useState<number>(0);
 	let [showModal, setShowModal] = useState<boolean>(false);
 
@@ -70,7 +68,7 @@ const HackerNewsApp = () => {
 	const getNewsData = async (page: number) => {
 		setLoading(true);
 		const topNews = await getTopNews();
-		const news = await Promise.all(topNews.slice((page - 1) * 15, page * 15).map((id: number) => getNews(id)));
+		const news = await Promise.all(topNews.slice((page - 1) * 2, page * 2).map((id: number) => getNews(id)));
 
 		setNews((prevNews) => [...prevNews, ...news]);
 		setLoading(false);
@@ -100,24 +98,24 @@ const HackerNewsApp = () => {
 	const getArticleCommentsData = async (article: ArticleType) => {
 		setLoading(true);
 		const articleComments = await Promise.all(article.kids.map((id: number) => getArticleComments(id)));
-		if(articleComments) 
+		if (articleComments)
 			setComments(articleComments as ArticleCommentType[]);
-			
+
 		setLoading(false);
 	};
 
 
-	const showArticleModal = async (id: number) => {	
+	const showArticleModal = async (id: number) => {
 		const article = news.find((article: ArticleType) => article.id === id);
 		if (article) {
 			if (article.kids) {
 				await getArticleCommentsData(article);
 				setModalArticle(article);
-				setShowModal(true);	
+				setShowModal(true);
 			}
 			else {
 				setModalArticle(article);
-				setShowModal(true);	
+				setShowModal(true);
 
 			}
 		}
@@ -131,13 +129,19 @@ const HackerNewsApp = () => {
 	useEffect(() => {
 		document.title = "Hacker News";
 		loadMore();
-		// on scroll close to bottom, get more news
-		window.onscroll = () => {
-			if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+	}, []);
+
+	// load untill scrollbar is shown
+	useEffect(() => {
+		if (news.length > 0) {
+			const scrollHeight = document.documentElement.scrollHeight;
+			const clientHeight = document.documentElement.clientHeight;
+			if (scrollHeight === clientHeight) {
 				loadMore();
 			}
 		}
-	}, []);
+	}, [news]);
+
 
 	// if clicked outside modal, close modal
 	window.onclick = (e: any) => {
@@ -145,32 +149,44 @@ const HackerNewsApp = () => {
 	}
 	document.body.classList.add('customScroll');
 
+	let classGrid: string = "mx-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 px-10";
 	return (
 		<>
-			<div style={{ backgroundImage: `url(${hero})` }}
-				className='w-full h-screen bg-no-repeat bg-cover bg-center bg-fixed fixed'></div>
+			<div style={{ background: `url(${hero})`, backgroundSize: `cover`, backgroundPosition: `center` }}
+				className='w-screen h-screen fixed'></div>
 			<div className="h-screen w-screen bg-black opacity-40 fixed"></div>
-			<div>
-				<Navigation loadMore={loadMore}/>
-				<div className="mx-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 px-10">
+			<div className="absolute">
+				<Navigation />
+					<InfiniteScroll
+						dataLength={news.length} //This is important field to render the next data
+						next={loadMore}
+						hasMore={true}
+						loader={<h4 className="text-amber-500">Loading...</h4>}
+						className={classGrid}
+						endMessage={
+							<p style={{ textAlign: 'center' }}>
+								<b>Yay! You have seen it all</b>
+							</p>
+						}>
+							
 
-					{loading && <div className="text-white text-center fixed">Loading...</div>}
-					{error && <div className="text-white text-center fixed">{error}</div>}
-					{news.map((article: ArticleType) => (
-						<Article
-							key={article.id}
-							by={article.by}
-							descendants={article.descendants}
-							id={article.id}
-							kids={article.kids}
-							score={article.score}
-							time={article.time}
-							title={article.title}
-							type={article.type}
-							url={article.url}
-							callback={showArticleModal}
-						></Article>
-					))}
+						{news.map((article: ArticleType) => (
+							<Article
+								key={article.id}
+								by={article.by}
+								descendants={article.descendants}
+								id={article.id}
+								kids={article.kids}
+								score={article.score}
+								time={article.time}
+								title={article.title}
+								type={article.type}
+								url={article.url}
+								callback={showArticleModal}
+							></Article>
+						))}
+					</InfiniteScroll>
+
 
 					{showModal &&
 						<ArticleModal
@@ -185,7 +201,6 @@ const HackerNewsApp = () => {
 							url={modalArticle?.url}
 							comments={comments}
 						/>}
-				</div>
 			</div>
 		</>
 
