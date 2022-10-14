@@ -23,7 +23,7 @@ const ArticleModal = (props: ArticleModalProps) => {
         <>
             <div id='modal' className="fixed inset-0 h-full bg-black opacity-80"></div>
             
-            <button id='close-modal' className="fixed top-0 right-0 m-4 text-white text-2xl font-bold">X</button>
+            <button id='modal' className="fixed top-0 right-0 m-4 text-white text-2xl font-bold">X</button>
 
 
 

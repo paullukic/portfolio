@@ -68,7 +68,7 @@ const HackerNewsApp = () => {
 	const getNewsData = async (page: number) => {
 		setLoading(true);
 		const topNews = await getTopNews();
-		const news = await Promise.all(topNews.slice((page - 1) * 2, page * 2).map((id: number) => getNews(id)));
+		const news = await Promise.all(topNews.slice((page - 1) * 9, page * 9).map((id: number) => getNews(id)));
 
 		setNews((prevNews) => [...prevNews, ...news]);
 		setLoading(false);

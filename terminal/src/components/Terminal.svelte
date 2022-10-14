@@ -46,7 +46,7 @@
 		},
 		{
 			class: '',
-			text: "Type 'help' for a list of commands, or 'start gui -win98' to use graphical interface."
+			text: "Type 'help' for a list of commands, or 'start gui -win98', or 'start gui -react' to use graphical interface."
 		}
 	];
 
