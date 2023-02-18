@@ -174,7 +174,7 @@ export default function Home(props: IAppProps) {
                     <div id='scroll-container' onWheel={handleWheel}
                         className='h-auto py-2 pt-20 absolute left-[-17px] w-screen max-w-screen overflow-x-scroll hide-scrollbar rotate-0 lg:rotate-[5deg] z-30'
                         ref={containerRef}>
-                        <div className='flex w-max gap-x-4 px-20'>
+                        <div className='flex w-max gap-x-4 px-20 pb-10'>
                             {
                                 PROJECTS.map((project, index) => (
                                     <ProjectCard key={index} title={project.title} imageUrl={project.imageUrl} linkTo={project.linkTo} />

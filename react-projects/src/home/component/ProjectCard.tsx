@@ -10,14 +10,13 @@ export interface ProjectCardProps {
 
 export function ProjectCard(props: ProjectCardProps) {
     return (
-        <a href={props.linkTo} target="_blank" className='relative'>
+        <a href={props.linkTo} target="_blank" className='relative lg:grayscale hover:grayscale-0 transition-all duration-500 ease-in-out hover:scale-110 hover:z-50 z-20'>
             <img className='object-cover object-top overflow-hidden min-h-[300px] max-h-[300px] w-[500px] shadow-lg rounded-xl' src={props.imageUrl} alt='hackernews' />
             <div className='flex flex-col justify-center items-center absolute bottom-2 left-3 z-30'>
-                <h2 className='font-bold text-gray-800 dark:text-slate-400'>{props.title}</h2>
-               
+                <h2 className='font-bold text-gray-300'>{props.title}</h2>
             </div>
              {/* gradient from bottom to top */}
-             <div className='absolute bottom-[-1px] rounded-[11px] w-full h-full bg-gradient-to-t from-slate-200 dark:from-stone-800  z-20 to-transparent'></div>
+             <div className='absolute bottom-[-1px] rounded-b-[11px] w-full h-10 backdrop-blur-2xl backdrop-brightness-50 z-20'></div>
         </a>
     );
 }
