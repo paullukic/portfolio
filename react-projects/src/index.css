@@ -12,3 +12,28 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+body{
+  overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+/* hide scroll bar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* rotate 33deg */
+.rotate-5 {
+  transform: rotate(5deg);
+}
+
+#scroll-container{
+  width: calc(100vw + 17px);
+}

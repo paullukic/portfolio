@@ -10,15 +10,14 @@ export interface ProjectCardProps {
 
 export function ProjectCard(props: ProjectCardProps) {
     return (
-        <Link to={props.linkTo}>
-        <div className='my-1 px-1 lg:my-4 lg:px-4'>
-            <div className="w-64 h-64 bg-red-100 relative overflow-hidden rounded-lg shadow-lg">
-                <div className="absolute inset-0 bg-cover bg-center z-0" style={{ backgroundImage: "url(" + props.imageUrl + ")" }}></div>
-                <div className="opacity-50 hover:opacity-80 duration-300 absolute inset-0 z-10 flex justify-center items-center text-2xl text-white font-semibold">
-                    {props.title}
-                </div>
+        <a href={props.linkTo} target="_blank" className='relative'>
+            <img className='object-cover object-top overflow-hidden min-h-[300px] max-h-[300px] w-[500px] shadow-lg rounded-xl' src={props.imageUrl} alt='hackernews' />
+            <div className='flex flex-col justify-center items-center absolute bottom-2 left-3 z-30'>
+                <h2 className='font-bold text-gray-800 dark:text-slate-400'>{props.title}</h2>
+               
             </div>
-        </div>
-        </Link>
+             {/* gradient from bottom to top */}
+             <div className='absolute bottom-[-1px] rounded-[11px] w-full h-full bg-gradient-to-t from-slate-200 dark:from-stone-800  z-20 to-transparent'></div>
+        </a>
     );
 }
